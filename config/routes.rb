@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users 
   
-  # Technically correct, but fix these routes
+  # scope in this instance is the same as saying resources :users except: *methods
+  # listings need to be nested under a user to perform crud actions
   scope '/users/:user_id' do
     resources :listings
   end
 
+  # allow all users to look at the listings regardless of session status
   resources :listings, only: :index
 
   root 'listings#index'
