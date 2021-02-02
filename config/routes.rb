@@ -2,8 +2,12 @@ Rails.application.routes.draw do
   devise_for :users 
   
   # Technically correct, but fix these routes
-  resources :users, except: [:index, :show, :edit, :update, :destroy, :new, :create] do
+  scope '/users/:user_id' do
     resources :listings
   end
+
+  resources :listings, only: :index
+
+  root 'listings#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
