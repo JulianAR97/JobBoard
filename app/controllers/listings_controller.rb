@@ -10,6 +10,7 @@ class ListingsController < ApplicationController
     if params[:user_id]
       unless User.where(id: params[:user_id]).first == current_user
         if user_signed_in?
+          flash[:error] = "You do not have access to that page"
           redirect_to root_path
         else 
           flash[:error] = "You must be logged in to access this page"

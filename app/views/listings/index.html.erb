@@ -1,8 +1,8 @@
-<h1>Listings</h1>
+<h1><%="My " if params[:user_id] %>Listings</h1>
 <% @listings.each do |listing| %>
-  <%= listing.title %>
-  <%= listing.content %>
-  <%= listing.price %>
-  <%= listing.difficulty %>
-  <%= listing.creator_name%>
+  <h3><%= listing.title %></h3><br>
+  <p><%= listing.content %><p>
+  <p><%= listing.price %><p>
+  <%= listing.difficulty %><br>
+  <%= listing.creator_name%><br>
 <% end %>
