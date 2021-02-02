@@ -1,0 +1,8 @@
+<h1>Listings</h1>
+<% @listings.each do |listing| %>
+  <%= listing.title %>
+  <%= listing.content %>
+  <%= listing.price %>
+  <%= listing.difficulty %>
+  <%= listing.creator_name%>
+<% end %>
