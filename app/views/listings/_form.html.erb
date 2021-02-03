@@ -9,28 +9,30 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class:'form-control' %>
   </div>
   
-  <div class="field">
+  <div class="form-group">
     <%= f.label "Description" %>
-    <%= f.text_area :content %>
+    <%= f.text_area :content, class:'form-control' %>
   </div>
   
-  <div class="field">
-    <%= f.label :difficulty %>
-    <%= f.select :difficulty, ['easy', 'medium', 'hard'] %>
+  <div class="custom-control custom-radio">
+    
+    <%= f.radio_button :difficulty, 'easy', class:'custom-control-input' %>
+    <%= f.label 'easy', class: 'custom-control-label'%>
+    
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :price %>
-    <%= f.number_field :price %>
+    <%= f.number_field :price, class:'form-control' %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.submit class:'btn btn-primary'%>
   </div>
 
 <% end %>
