@@ -29,7 +29,8 @@ def listing_title_gen(list_a, list_b, tag_a, tag_b)
   "#{tag_a}/#{tag_b} #{list_a.sample} #{list_b.sample}"
 end
 
-10.times do
+# Until every user has at least 5 listings
+until User.all.map(&:listings).map(&:count).none? {|e| e < 5} do
   tags = Tag.all.sample(rand(2..5))
   title = listing_title_gen(list_a, list_b, tags[0].name, tags[1].name)
   word_count = (5..10).to_a.sample * 50
