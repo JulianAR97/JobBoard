@@ -9,6 +9,7 @@ module TagsHelper
     else
       selector = tag
     end
+    # this is the html class, refer to it in application.scss
     "tag-#{selector}"
   end
 end
