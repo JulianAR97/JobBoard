@@ -1,0 +1,36 @@
+<!--form_for is deprecated-->
+<%= form_with(model: listing, url: url) do |f| %>
+  <% if listing.errors.any? %>
+    <div id="error_explanation">
+      <% listing.errors.each do |error| %>
+        <%= error.full_message %><br>
+      <% end %>
+      <br>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  
+  <div class="field">
+    <%= f.label "Description" %>
+    <%= f.text_area :content %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :difficulty %>
+    <%= f.select :difficulty, ['easy', 'medium', 'hard'] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price %>
+    <%= f.number_field :price %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
