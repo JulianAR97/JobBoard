@@ -20,6 +20,8 @@ class Listing < ApplicationRecord
 
   private
 
+  # technically this is only needed if the user enters something like 400.00, any other decimal 
+  # will be caught before the form is submitted
   def price_to_integer
     self.price = self.price.to_i
   end
