@@ -1,0 +1,10 @@
+<h3><%=listing.title%></h3>
+tags:
+<% listing.tag_names.each do |tag| %>
+  <%= tag %>
+<% end %>
+<br>
+<%= listing.content if show_content %>
+Compensation: $<%= listing.price %><br>
+Difficulty: <%= listing.difficulty %><br>
+Listed By: <%= listing.creator_name %><br><br>

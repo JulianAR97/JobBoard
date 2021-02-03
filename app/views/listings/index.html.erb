@@ -3,10 +3,7 @@
 <% if params[:user_id] %>
   <%= link_to "New Listing", new_user_listing_path(current_user) %>
 <% end %>
+
 <% @listings.each do |listing| %>
-  <h3><%= listing.title %></h3><br>
-  <p><%= listing.content %><p>
-  <p><%= listing.price %><p>
-  <%= listing.difficulty %><br>
-  <%= listing.creator_name%><br>
+  <%= render 'listing', listing: listing, show_content: false %>
 <% end %>
