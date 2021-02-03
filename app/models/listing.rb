@@ -6,7 +6,7 @@ class Listing < ApplicationRecord
   before_validation :price_to_integer
 
   validates :title, length: { in: 5..50 }
-  validates :difficulty, inclusion: { in: %w(easy medium hard), message: "%{value} is not a valid difficulty" }
+  validates :skill_level, inclusion: { in: %w(beginner intermediate expert), message: "%{value} is not a valid skill_level" }
   validates :price, numericality: { only_integer: true }
   validates :content, length: { in: 100..5000 }
 

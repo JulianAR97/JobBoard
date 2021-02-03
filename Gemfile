@@ -34,6 +34,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry'
   gem 'lorem_ipsum_amet'
+  gem 'solargraph'
 end
 
 group :development do
