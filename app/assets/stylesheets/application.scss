@@ -61,3 +61,11 @@ a:link {
 a:hover {
   color: #24305e
 }
+
+
+
+/* removes ugly highlighting around input field */
+.input-group {
+  input:focus, textarea:focus {
+  box-shadow: none;
+}}
