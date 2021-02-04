@@ -38,6 +38,13 @@
             <%= f.text_area :content, class:'form-control lg-bg navy-text', rows: 6, placeholder: lorem_ipsum(300) %>
           </div>
 
+          <div class="input-group mb-3 lg-bg">
+            <div class="input-group-prepend">
+              <span class="input-group-text mb-bg w-text">Price</span>            
+            </div>
+              <%= f.number_field :price, class:'form-control lg-bg navy-text', placeholder: 'Enter a price...' %>
+          </div>
+          
           <div class="custom-control custom-radio">
             <%= f.radio_button :skill_level, 'beginner', class:'custom-control-input', id:'listing_beginner' %>
             <%= f.label 'beginner', class: 'custom-control-label'%>
@@ -54,12 +61,7 @@
           </div>
           
           <br>
-          <div class="input-group mb-3 lg-bg">
-            <div class="input-group-prepend">
-              <span class="input-group-text mb-bg w-text">Price</span>            
-            </div>
-              <%= f.number_field :price, class:'form-control lg-bg navy-text', placeholder: 'Enter a price...' %>
-          </div>
+          
           <div class="input-group-text mb-bg w-text">
             <span class="text-center" style="width: 100%;">Select up to 5 tags<span>
           </div>
