@@ -1,8 +1,8 @@
 <div class="show-head" style="inline">
   <h3><%= show_listing(listing)%>
   <% if params[:user_id] %>
-    <%= link_to "Edit", edit_user_listing_path(current_user, listing), type: "button", class: "btn btn-primary" %>
-    <%= link_to "Delete", user_listing_path(current_user, listing), type:'button', class:"btn btn-danger", method:'delete'%>
+    <%= link_to "Edit", edit_user_listing_path(current_user, listing), type: "button", class: "btn y-bg" %>
+    <%= link_to "Delete", user_listing_path(current_user, listing), type:'button', class:"btn r-bg", method:'delete'%>
   <% end %>
   </h3>
  </div>
@@ -18,7 +18,16 @@
 <% end %>
 
 <div class="listing-info">
-  Compensation: $<%= listing.price %><br>
-  Skill Level: <%= listing.skill_level %><br>
-  Listed By: <%= listing.creator_name %><br><br>
+  <h6>Compensation: $<%= listing.price %></h6>
+  <h6>Skill Level: <%= listing.skill_level %></h6>
+  <h6>Listed By: <%= listing.creator_name %></h6>
+  <br>
 </div>
+
+
+
+
+
+
+
+
