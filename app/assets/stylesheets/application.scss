@@ -128,4 +128,27 @@
   }
 }
 
+// Remove Default Checkbox
+.custom-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
 
+// .container:hover input ~ .checkmark {
+//   background-color: #ccc;
+// }
+
+.checkmark {
+  opacity: 30%;
+}
+.custom-checkbox:hover input ~ .checkmark {
+  opacity: 100%;
+}
+
+/* When the checkbox is checked, add a blue background */
+.custom-checkbox input:checked ~ .checkmark {
+  opacity: 100%;
+}

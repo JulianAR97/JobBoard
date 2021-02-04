@@ -7,7 +7,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title">New Listing</h4>
+        <h4 class="modal-title w-100">New Listing</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
@@ -54,9 +54,15 @@
             <%= f.label 'expert', class: 'custom-control-label'%>
           </div>
           <br>
-          <div class="form-group">
+          <div class="form-group tags">
             <%= f.label "Select up to 5 tags:"%><br>
-            <%= f.collection_check_boxes(:tag_ids, Tag.order(:name), :id, :name, class:"form-check-input")%>
+            <%= f.collection_check_boxes(:tag_ids, Tag.order(:name), :id, :name) do |box|%>
+        
+              <%= box.label class:"custom-checkbox" do%>
+                <%= box.check_box%>
+                <span class="checkmark <%= get_tag_class(box.object.name)%>""><%= box.text %></span>
+              <% end %>
+            <% end %>
           </div>
 
           <div class="form-group">
