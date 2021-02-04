@@ -6,4 +6,8 @@ module ListingsHelper
       link_to listing.title, listing_path(listing)
     end
   end
+
+  def valid_skill_levels
+    %w[beginner intermediate expert]
+  end
 end
