@@ -49,22 +49,15 @@
             <span class="text-center" style="width: 100%;">Select Skill Level<span>
           </div>
 
-          <div class="custom-control custom-radio">
-            <%= f.radio_button :skill_level, 'beginner', class:'custom-control-input', id:'listing_beginner' %>
-            <%= f.label 'beginner', class: 'custom-control-label'%>
-          </div>
-
-          <div class="custom-control custom-radio">
-            <%= f.radio_button :skill_level, 'intermediate', class:'custom-control-input', id:'listing_intermediate' %>
-            <%= f.label 'intermediate', class: 'custom-control-label'%>
-          </div>
-
-          <div class="custom-control custom-radio">
-            <%= f.radio_button :skill_level, 'expert', class:'custom-control-input', id:'listing_expert' %>
-            <%= f.label 'expert', class: 'custom-control-label'%>
+          <div class="form-group tags" style="text-align: center">
+            <%= f.collection_radio_buttons(:skill_level, valid_skill_levels, :to_s, :to_s) do |radio| %>
+              <%= radio.label class: "custom-checkbox" do %>
+                <%= radio.radio_button %>
+                <span class="checkmark <%=radio.text%>"><%= radio.text %></span>
+              <% end %>
+            <% end %>
           </div>
           
-          <br>
           
           <div class="input-group-text mb-bg w-text">
             <span class="text-center" style="width: 100%;">Select Up To 5 Tags<span>
@@ -74,8 +67,8 @@
             <%= f.collection_check_boxes(:tag_ids, Tag.order(:name), :id, :name, limit:5) do |box|%>
         
               <%= box.label class:"custom-checkbox" do%>
-                <%= box.check_box%>
-                <span class="checkmark <%= get_tag_class(box.object.name)%>""><%= box.text %></span>
+                <%= box.check_box %>
+                <span class="checkmark <%= get_tag_class(box.object.name)%>"><%= box.text %></span>
               <% end %>
             <% end %>
           </div>
