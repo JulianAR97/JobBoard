@@ -13,12 +13,10 @@
 ActiveRecord::Schema.define(version: 2021_02_03_183350) do
 
   create_table "listing_tags", force: :cascade do |t|
-    t.integer "listing_id", null: false
-    t.integer "tag_id", null: false
+    t.integer "listing_id"
+    t.integer "tag_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["listing_id"], name: "index_listing_tags_on_listing_id"
-    t.index ["tag_id"], name: "index_listing_tags_on_tag_id"
   end
 
   create_table "listings", force: :cascade do |t|
@@ -26,10 +24,9 @@ ActiveRecord::Schema.define(version: 2021_02_03_183350) do
     t.text "content"
     t.string "skill_level"
     t.integer "price"
-    t.integer "user_id", null: false
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -50,7 +47,4 @@ ActiveRecord::Schema.define(version: 2021_02_03_183350) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "listing_tags", "listings"
-  add_foreign_key "listing_tags", "tags"
-  add_foreign_key "listings", "users"
 end
