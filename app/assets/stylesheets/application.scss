@@ -16,3 +16,48 @@
  *= require_tags
  */
 
+/*
+Colors
+#f8e9a1 -yellow
+#f76c6c -red 
+#a8d0e6 -light blue/grey
+#374785 -medium blue
+#24305e -navy
+*/
+
+
+.y-bg {
+  background-color:#f8e9a1;
+}
+
+.r-bg {
+  background-color:#f76c6c;
+}
+
+.lb-bg {
+  background-color:#a8d0e6;
+}
+
+.mb-bg {
+  background-color:#374785;
+}
+
+.navy-bg {
+  background-color:#24305e;
+}
+
+.w-text {
+  color: white;
+}
+
+a {
+  color:#374785;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #24305e
+}
