@@ -7,7 +7,7 @@
   <div class="modal-dialog">
     <div class="modal-content lb-bg">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100">New Listing</h4>
+        <h3 class="modal-title w-100 mb-text">New Listing</h3>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
@@ -45,10 +45,8 @@
               <%= f.number_field :price, class:'form-control lg-bg navy-text', placeholder: 'Enter a price...' %>
           </div>
           
-          <div class="input-group-text mb-bg w-text">
-            <span class="text-center" style="width: 100%;">Select Skill Level<span>
-          </div>
-
+          <%= render partial: 'listings/modal_partials/label', locals: {select_text: 'Select a Skill Level'}%>
+      
           <div class="form-group tags" style="text-align: center">
             <%= f.collection_radio_buttons(:skill_level, valid_skill_levels, :to_s, :to_s) do |radio| %>
               <%= radio.label class: "custom-checkbox" do %>
@@ -58,12 +56,9 @@
             <% end %>
           </div>
           
+          <%= render partial: 'listings/modal_partials/label', locals: {select_text: 'Select Up To 5 Tags'}%>
           
-          <div class="input-group-text mb-bg w-text">
-            <span class="text-center" style="width: 100%;">Select Up To 5 Tags<span>
-          </div>
-          
-          <div class="form-group tags">
+          <div class="form-group tags" style="text-align: center">
             <%= f.collection_check_boxes(:tag_ids, Tag.order(:name), :id, :name, limit:5) do |box|%>
         
               <%= box.label class:"custom-checkbox" do%>
