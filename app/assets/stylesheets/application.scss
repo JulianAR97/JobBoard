@@ -38,12 +38,20 @@ Colors
   background-color:#a8d0e6;
 }
 
+.lg-bg {
+  background-color:#e3eeff;
+}
+
 .mb-bg {
   background-color:#374785;
 }
 
 .navy-bg {
   background-color:#24305e;
+}
+
+.navy-text {
+  color: #24305e;
 }
 
 .w-text {
@@ -59,7 +67,7 @@ a:link {
 }
 
 a:hover {
-  color: #24305e
+  color: #24305e;
 }
 
 
@@ -68,4 +76,13 @@ a:hover {
 .input-group {
   input:focus, textarea:focus {
   box-shadow: none;
+  background-color: #e3eeff;
 }}
+
+/* doesn't change color of input field if auto selected */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #e3eeff inset;
+}
