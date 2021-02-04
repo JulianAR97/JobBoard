@@ -76,7 +76,7 @@ a:hover {
 .input-group {
   input:focus, textarea:focus {
   box-shadow: none;
-  background-color: #e3eeff;
+  background-color: inherit;
 }}
 
 /* doesn't change color of input field if auto selected */
@@ -84,5 +84,6 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 30px #e3eeff inset;
+  box-shadow: 0 0 0 30px inherit inset;
+  -webkit-box-shadow: 0 0 0 30px inherit inset;
 }
