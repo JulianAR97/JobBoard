@@ -17,6 +17,7 @@
           <% if listing.errors.any? %>
             <div id="error_explanation">
               <% listing.errors.each do |error| %>
+                
                 <%= error.full_message %><br>
               <% end %>
               <br>
@@ -56,7 +57,7 @@
           <br>
           <div class="form-group tags">
             <%= f.label "Select up to 5 tags:"%><br>
-            <%= f.collection_check_boxes(:tag_ids, Tag.order(:name), :id, :name) do |box|%>
+            <%= f.collection_check_boxes(:tag_ids, Tag.order(:name), :id, :name, limit:5) do |box|%>
         
               <%= box.label class:"custom-checkbox" do%>
                 <%= box.check_box%>
