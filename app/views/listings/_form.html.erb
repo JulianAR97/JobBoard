@@ -28,7 +28,7 @@
             <div class= "input-group-prepend">
               <span class="input-group-text mb-bg w-text">Title</span>
             </div>
-            <%= f.text_field :title, class:'form-control', placeholder:'Enter creative title here...' %>
+            <%= f.text_field :title, class:'form-control', placeholder:'Enter creative title here...'%>
           </div>
 
           <div class="input-group mb-3">
@@ -54,9 +54,17 @@
           </div>
           
           <br>
-
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text mb-bg w-text">Price</span>            
+            </div>
+              <%= f.number_field :price, class:'form-control', placeholder: 'Enter a price...' %>
+          </div>
+          <div class="input-group-text mb-bg w-text">
+            <span class="text-center" style="width: 100%;">Select up to 5 tags<span>
+          </div>
+          
           <div class="form-group tags">
-            <%= f.label "Select up to 5 tags:"%><br>
             <%= f.collection_check_boxes(:tag_ids, Tag.order(:name), :id, :name, limit:5) do |box|%>
         
               <%= box.label class:"custom-checkbox" do%>
@@ -66,12 +74,6 @@
             <% end %>
           </div>
           
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text mb-bg w-text">Price</span>            
-            </div>
-              <%= f.number_field :price, class:'form-control', placeholder: 'Enter a price...' %>
-          </div>
 
           <div class="form-group">
             <%= f.submit class:'btn y-bg btn-block'%>
