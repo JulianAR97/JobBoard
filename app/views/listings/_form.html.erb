@@ -1,11 +1,11 @@
 <!--form_for is deprecated-->
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formModal"><%=modal_name%></button>
+<button type="button" class="btn y-bg" data-toggle="modal" data-target="#formModal"><%=modal_name%></button>
 
 
-<div class="modal" id="formModal">
+<div class="modal lb-bg" id="formModal">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content lb-bg">
       <div class="modal-header text-center">
         <h4 class="modal-title w-100">New Listing</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -26,14 +26,14 @@
 
           <div class="input-group mb-3">
             <div class= "input-group-prepend">
-              <span class="input-group-text">Title</span>
+              <span class="input-group-text mb-bg w-text">Title</span>
             </div>
             <%= f.text_field :title, class:'form-control', placeholder:'Enter creative title here...' %>
           </div>
 
           <div class="input-group mb-3">
             <div class= "input-group-prepend">
-              <span class="input-group-text">Description</span>
+              <span class="input-group-text mb-bg w-text">Description</span>
             </div>
             <%= f.text_area :content, class:'form-control', rows: 6, placeholder: lorem_ipsum(300) %>
           </div>
@@ -67,21 +67,21 @@
           </div>
           
           <div class="input-group mb-3">
-            <div class=input-group-prepend>
-              <span class="input-group-text">Price</span>            
+            <div class="input-group-prepend">
+              <span class="input-group-text mb-bg w-text">Price</span>            
             </div>
               <%= f.number_field :price, class:'form-control', placeholder: 'Enter a price...' %>
           </div>
 
           <div class="form-group">
-            <%= f.submit class:'btn btn-success btn-block'%>
+            <%= f.submit class:'btn y-bg btn-block'%>
           </div>
 
         <% end %>
       </div>
       
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="button" class="btn r-bg" data-dismiss="modal">Close</button>
       </div>
     
     </div>
