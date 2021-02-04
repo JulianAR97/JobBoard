@@ -1,11 +1,12 @@
 class ListingsController < ApplicationController
-  before_action :match_profile
-  before_action :get_listing, only: %i[show edit update destroy]
+  before_action :validate_ownership, only: %i[edit update destroy]
+
   def index
     params[:user_id] ? @listings = Listing.where(user_id: params[:user_id]) : @listings = Listing.all
   end
   
-  def show 
+  def show
+    @listing = Listing.find(params[:id])
   end
 
   def new
@@ -39,17 +40,12 @@ class ListingsController < ApplicationController
 
   private
 
-  def match_profile
-    if params[:user_id]
-      unless User.where(id: params[:user_id]).first == current_user
-        if user_signed_in?
-          flash[:error] = "You do not have access to that page"
-          redirect_to root_path
-        else 
-          flash[:error] = "You must be logged in to access this page"
-          redirect_to new_user_session_path
-        end
-      end
+  def validate_ownership
+    listing = Listing.find_by(user: current_user, id: params[:id])
+    if listing
+      @listing = listing
+    else
+      redirect_to listings_path, notice: "You do not have access to that listing"
     end
   end
 
