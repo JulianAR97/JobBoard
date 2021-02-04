@@ -45,6 +45,10 @@
               <%= f.number_field :price, class:'form-control lg-bg navy-text', placeholder: 'Enter a price...' %>
           </div>
           
+          <div class="input-group-text mb-bg w-text">
+            <span class="text-center" style="width: 100%;">Select Skill Level<span>
+          </div>
+
           <div class="custom-control custom-radio">
             <%= f.radio_button :skill_level, 'beginner', class:'custom-control-input', id:'listing_beginner' %>
             <%= f.label 'beginner', class: 'custom-control-label'%>
@@ -63,7 +67,7 @@
           <br>
           
           <div class="input-group-text mb-bg w-text">
-            <span class="text-center" style="width: 100%;">Select up to 5 tags<span>
+            <span class="text-center" style="width: 100%;">Select Up To 5 Tags<span>
           </div>
           
           <div class="form-group tags">
