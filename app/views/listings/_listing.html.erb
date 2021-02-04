@@ -1,5 +1,11 @@
-<h3><%= show_listing(listing)%></h3>
-
+<div class="show-head" style="inline">
+  <h3><%= show_listing(listing)%>
+  <% if params[:user_id] %>
+    <%= link_to "Edit", edit_user_listing_path(current_user, listing), type: "button", class: "btn btn-primary" %>
+    <%= link_to "Delete", user_listing_path(current_user, listing), type:'button', class:"btn btn-danger", method:'delete'%>
+  <% end %>
+  </h3>
+ </div>
 <div class="tags">
   <% listing.tag_names.each do |tag| %>
     <span class=<%= get_tag_class(tag) %>><%= tag %></span>
