@@ -6,7 +6,12 @@ class ListingsController < ApplicationController
   end
   
   def show
-    @listing = Listing.find(params[:id])
+    if params[:user_id]
+      validate_ownership
+    else
+      @listing = Listing.find(params[:id])
+    end
+    
   end
 
   def new
@@ -45,7 +50,11 @@ class ListingsController < ApplicationController
     if listing
       @listing = listing
     else
-      redirect_to listings_path, notice: "You do not have access to that listing"
+      if params[:user_id]
+        redirect_to user_listings_path(current_user), notice: "You do not have acess to that listing"
+      else
+        redirect_to listings_path, notice: "You do not have access to that listing"
+      end
     end
   end
 
