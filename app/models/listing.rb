@@ -2,6 +2,7 @@ class Listing < ApplicationRecord
   belongs_to :user
   has_many :listing_tags
   has_many :tags, through: :listing_tags
+  accepts_nested_attributes_for :tags
 
   before_validation :price_to_integer
 
