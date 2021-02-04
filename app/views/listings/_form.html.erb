@@ -38,8 +38,6 @@
             <%= f.text_area :content, class:'form-control', rows: 6, placeholder: lorem_ipsum(300) %>
           </div>
 
-
-          Difficulty 
           <div class="custom-control custom-radio">
             <%= f.radio_button :skill_level, 'beginner', class:'custom-control-input', id:'listing_beginner' %>
             <%= f.label 'beginner', class: 'custom-control-label'%>
@@ -54,7 +52,9 @@
             <%= f.radio_button :skill_level, 'expert', class:'custom-control-input', id:'listing_expert' %>
             <%= f.label 'expert', class: 'custom-control-label'%>
           </div>
+          
           <br>
+
           <div class="form-group tags">
             <%= f.label "Select up to 5 tags:"%><br>
             <%= f.collection_check_boxes(:tag_ids, Tag.order(:name), :id, :name, limit:5) do |box|%>
@@ -65,18 +65,21 @@
               <% end %>
             <% end %>
           </div>
-
-          <div class="form-group">
-            <%= f.label :price %>
-            <%= f.number_field :price, class:'form-control', placeholder: 'Enter a price...' %>
+          
+          <div class="input-group mb-3">
+            <div class=input-group-prepend>
+              <span class="input-group-text">Price</span>            
+            </div>
+              <%= f.number_field :price, class:'form-control', placeholder: 'Enter a price...' %>
           </div>
 
           <div class="form-group">
-            <%= f.submit class:'btn btn-success'%>
+            <%= f.submit class:'btn btn-success btn-block'%>
           </div>
 
         <% end %>
       </div>
+      
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
       </div>
