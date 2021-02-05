@@ -24,28 +24,19 @@
             </div>
           <% end %>
 
-          <% if_path = 'listings/modal_partials/input_field'%>
-          <%= render partial: if_path, locals: {f: f, label_text: 'Title', placeholder: 'Enter a creative title...', rows: nil, input_type: 'text_field'}%>
-          <%= render partial: if_path, locals: {f: f, label_text: 'Content', placeholder: lorem_ipsum(300), rows: 6, input_type: 'text_area'}%>
-          <%= render partial: if_path, locals: {f: f, label_text: 'Price', placeholder: 'Enter a price...', rows: nil, input_type: 'number_field'}%>
           
-          <%= render partial: 'listings/modal_partials/label', locals: {label_text: 'Select a Skill Level'}%>
+          <%= render partial: partial_path("input_field"), locals: {f: f, label_text: 'Title', placeholder: 'Enter a creative title...', rows: nil, input_type: 'text_field'}%>
+          <%= render partial: partial_path("input_field"), locals: {f: f, label_text: 'Content', placeholder: lorem_ipsum(300), rows: 6, input_type: 'text_area'}%>
+          <%= render partial: partial_path("input_field"), locals: {f: f, label_text: 'Price', placeholder: 'Enter a price...', rows: nil, input_type: 'number_field'}%>
+          
+          <%= render partial: partial_path('label'), locals: {label_text: 'Select a Skill Level'}%>
   
-          <%= render partial: 'listings/modal_partials/collection', locals: {f: f, cllt_type: 'radio_button', cllt_options: radio_button_options}%>
+          <%= render partial: partial_path('collection'), locals: {f: f, cllt_type: 'radio_button', cllt_options: radio_button_options}%>
           
-          <%= render partial: 'listings/modal_partials/label', locals: {label_text: 'Select Up To 5 Tags'}%>
+          <%= render partial: partial_path('label'), locals: {label_text: 'Select Up To 5 Tags'}%>
           
-          <%= render partial: 'listings/modal_partials/collection', locals: {f: f, cllt_type: 'check_box', cllt_options: check_box_options}%>
-          <div class="form-group tags" style="text-align: center">
-            <%= f.collection_check_boxes(:tag_ids, Tag.order(:name), :id, :name, limit:5) do |box|%>
-        
-              <%= box.label class:"custom-checkbox" do%>
-                <%= box.check_box %>
-                <span class="checkmark <%= get_tag_class(box.object.name)%>"><%= box.text %></span>
-              <% end %>
-            <% end %>
-          </div>
-          
+          <%= render partial: partial_path('collection'), locals: {f: f, cllt_type: 'check_box', cllt_options: check_box_options}%>
+ 
 
           <div class="form-group">
             <%= f.submit class:'btn y-bg btn-block'%>
