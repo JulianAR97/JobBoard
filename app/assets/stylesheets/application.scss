@@ -25,7 +25,9 @@ Colors
 #24305e -navy
 */
 
-
+.g-bg {
+  background-color:#c5ddbb;
+}
 .y-bg {
   background-color:#f8e9a1;
 }
@@ -48,6 +50,9 @@ Colors
 
 .navy-bg {
   background-color:#24305e;
+}
+.mb-text {
+  color: #374785;
 }
 
 .navy-text {
@@ -86,4 +91,10 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   box-shadow: 0 0 0 30px inherit inset;
   -webkit-box-shadow: 0 0 0 30px inherit inset;
+}
+
+
+.custom-checkbox span {
+  display: inline-block;
+  vertical-align: middle;
 }
