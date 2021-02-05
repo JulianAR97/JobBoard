@@ -30,18 +30,12 @@
           <%= render partial: if_path, locals: {f: f, label_text: 'Price', placeholder: 'Enter a price...', rows: nil, input_type: 'number_field'}%>
           
           <%= render partial: 'listings/modal_partials/label', locals: {label_text: 'Select a Skill Level'}%>
-      
-          <div class="form-group tags" style="text-align: center">
-            <%= f.collection_radio_buttons(:skill_level, valid_skill_levels, :to_s, :to_s, {}, required: true) do |radio| %>
-              <%= radio.label class: "custom-checkbox" do %>
-                <%= radio.radio_button %>
-                <span class="checkmark <%=radio.text%>"><%= radio.text %></span>
-              <% end %>
-            <% end %>
-          </div>
+  
+          <%= render partial: 'listings/modal_partials/collection', locals: {f: f, cllt_type: 'radio_button', cllt_options: radio_button_options}%>
           
           <%= render partial: 'listings/modal_partials/label', locals: {label_text: 'Select Up To 5 Tags'}%>
           
+          <%= render partial: 'listings/modal_partials/collection', locals: {f: f, cllt_type: 'check_box', cllt_options: check_box_options}%>
           <div class="form-group tags" style="text-align: center">
             <%= f.collection_check_boxes(:tag_ids, Tag.order(:name), :id, :name, limit:5) do |box|%>
         

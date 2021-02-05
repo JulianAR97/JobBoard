@@ -1,0 +1,9 @@
+<div class="form-group tags" style="text-align: center">
+  <%= f.send("collection_#{cllt_type.pluralize(2)}", *(cllt_options)) do |resource|%>
+
+    <%= resource.label class: "custom-checkbox" do %>
+      <%= resource.send(cllt_type) %>
+      <span class="checkmark <%= custom_collect_class(cllt_type, resource) %>"><%= resource.text %></span>
+    <% end %>
+  <% end %>
+</div>
