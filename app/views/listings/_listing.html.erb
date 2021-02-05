@@ -8,7 +8,8 @@
 </div>
 <div class="tags">
   <% listing.tag_names.each do |tag| %>
-    <span class="no-link-style <%= get_tag_class(tag) %>"><%= link_to tag, listings_path%></span>
+    <%# tag: tag allows a param to be added%>
+    <span class="no-link-style <%= get_tag_class(tag) %>"><%= link_to tag, listings_path(tag: tag)%></span>
   <% end %>
 </div>
 
