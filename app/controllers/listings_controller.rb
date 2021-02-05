@@ -2,16 +2,15 @@ class ListingsController < ApplicationController
   before_action :validate_ownership, only: %i[edit update destroy]
 
   def index
-    params[:user_id] ? @listings = Listing.where(user_id: params[:user_id]) : @listings = Listing.all
+    @listings = select_listings
   end
-  
+
   def show
     if params[:user_id]
       validate_ownership
     else
       @listing = Listing.find(params[:id])
     end
-    
   end
 
   def new
@@ -63,11 +62,17 @@ class ListingsController < ApplicationController
     end
   end
 
-  def get_listing
-    @listing = Listing.find(params[:id])
-  end
-
   def listing_params
     params.require(:listing).permit(%i[title content skill_level price], tag_ids: [])
+  end
+
+  def select_listings
+    if params[:tag]
+      Listing.select {|l| l.tag_names.include? params[:tag]}
+    elsif params[:user_id]
+      Listing.where(user_id: params[:user_id])
+    else
+      Listing.all
+    end
   end
 end
