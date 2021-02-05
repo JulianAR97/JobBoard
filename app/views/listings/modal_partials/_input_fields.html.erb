@@ -1,0 +1,8 @@
+<div class="input-group mb-3 lg-bg">
+  <div class= "input-group-prepend">
+    <span class="input-group-text mb-bg w-text"><%=label_text%></span>
+  </div>
+  <%= f.send(input_type, *[label_text.downcase.to_sym, class:'form-control lg-bg navy-text', rows: rows, placeholder: placeholder, required: true])%>
+</div>
+
+<%# row if %>

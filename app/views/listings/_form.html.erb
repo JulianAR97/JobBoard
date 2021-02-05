@@ -24,31 +24,15 @@
             </div>
           <% end %>
 
-          <div class="input-group mb-3 lg-bg">
-            <div class= "input-group-prepend">
-              <span class="input-group-text mb-bg w-text">Title</span>
-            </div>
-            <%= f.text_field :title, class:'form-control lg-bg navy-text', placeholder:'Enter creative title here...'%>
-          </div>
-
-          <div class="input-group mb-3 lg-bg">
-            <div class= "input-group-prepend">
-              <span class="input-group-text mb-bg w-text">Description</span>
-            </div>
-            <%= f.text_area :content, class:'form-control lg-bg navy-text', rows: 6, placeholder: lorem_ipsum(300) %>
-          </div>
-
-          <div class="input-group mb-3 lg-bg">
-            <div class="input-group-prepend">
-              <span class="input-group-text mb-bg w-text">Price</span>            
-            </div>
-              <%= f.number_field :price, class:'form-control lg-bg navy-text', placeholder: 'Enter a price...' %>
-          </div>
+          <% if_path = 'listings/modal_partials/input_fields'%>
+          <%= render partial: if_path, locals: {f: f, label_text: 'Title', placeholder: 'Enter a creative title...', rows: nil, input_type: 'text_field'}%>
+          <%= render partial: if_path, locals: {f: f, label_text: 'Content', placeholder: lorem_ipsum(300), rows: 6, input_type: 'text_area'}%>
+          <%= render partial: if_path, locals: {f: f, label_text: 'Price', placeholder: 'Enter a price...', rows: nil, input_type: 'number_field'}%>
           
-          <%= render partial: 'listings/modal_partials/label', locals: {select_text: 'Select a Skill Level'}%>
+          <%= render partial: 'listings/modal_partials/label', locals: {label_text: 'Select a Skill Level'}%>
       
           <div class="form-group tags" style="text-align: center">
-            <%= f.collection_radio_buttons(:skill_level, valid_skill_levels, :to_s, :to_s) do |radio| %>
+            <%= f.collection_radio_buttons(:skill_level, valid_skill_levels, :to_s, :to_s, {}, required: true) do |radio| %>
               <%= radio.label class: "custom-checkbox" do %>
                 <%= radio.radio_button %>
                 <span class="checkmark <%=radio.text%>"><%= radio.text %></span>
@@ -56,7 +40,7 @@
             <% end %>
           </div>
           
-          <%= render partial: 'listings/modal_partials/label', locals: {select_text: 'Select Up To 5 Tags'}%>
+          <%= render partial: 'listings/modal_partials/label', locals: {label_text: 'Select Up To 5 Tags'}%>
           
           <div class="form-group tags" style="text-align: center">
             <%= f.collection_check_boxes(:tag_ids, Tag.order(:name), :id, :name, limit:5) do |box|%>
@@ -84,3 +68,5 @@
   </div>
 
 </div>
+
+
