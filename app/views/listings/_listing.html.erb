@@ -5,10 +5,10 @@
     <%= link_to "Delete", user_listing_path(current_user, listing), type:'button', class:"btn r-bg", method:'delete'%>
   <% end %>
   </h3>
- </div>
+</div>
 <div class="tags">
   <% listing.tag_names.each do |tag| %>
-    <span class=<%= get_tag_class(tag) %>><%= tag %></span>
+    <span class="no-link-style <%= get_tag_class(tag) %>"><%= link_to tag, listings_path%></span>
   <% end %>
 </div>
 
