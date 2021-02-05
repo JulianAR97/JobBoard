@@ -25,9 +25,9 @@
           <% end %>
 
           
-          <%= render partial: partial_path("input_field"), locals: {f: f, label_text: 'Title', placeholder: 'Enter a creative title...', rows: nil, input_type: 'text_field'}%>
-          <%= render partial: partial_path("input_field"), locals: {f: f, label_text: 'Content', placeholder: lorem_ipsum(300), rows: 6, input_type: 'text_area'}%>
-          <%= render partial: partial_path("input_field"), locals: {f: f, label_text: 'Price', placeholder: 'Enter a price...', rows: nil, input_type: 'number_field'}%>
+          <%= render partial: partial_path("input_field"), locals: {f: f, label_text: 'Title', placeholder: 'Creative title goes here...', rows: nil, input_type: 'text_field'}%>
+          <%= render partial: partial_path("input_field"), locals: {f: f, label_text: 'Description', placeholder: lorem_ipsum(300), rows: 6, input_type: 'text_area'}%>
+          <%= render partial: partial_path("input_field"), locals: {f: f, label_text: 'Price', placeholder: 'Hard work is rewarded', rows: nil, input_type: 'number_field'}%>
           
           <%= render partial: partial_path('label'), locals: {label_text: 'Select a Skill Level'}%>
   
@@ -46,7 +46,7 @@
       </div>
       
       <div class="modal-footer">
-        <button type="button" class="btn r-bg" data-dismiss="modal">Close</button>
+        <button type="button" class="btn r-bg btn-block" data-dismiss="modal">Close</button>
       </div>
     
     </div>

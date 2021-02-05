@@ -63,7 +63,7 @@ class ListingsController < ApplicationController
   end
 
   def listing_params
-    params.require(:listing).permit(%i[title content skill_level price], tag_ids: [])
+    params.require(:listing).permit(%i[title description skill_level price], tag_ids: [])
   end
 
   def select_listings
