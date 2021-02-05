@@ -121,6 +121,14 @@
   }
 }
 
+.no-link-style {
+  a, a:hover {
+    background-color: inherit;
+    color: inherit;
+  }
+}
+
+
 // Remove Default Checkbox
 .custom-checkbox input {
   position: absolute;
