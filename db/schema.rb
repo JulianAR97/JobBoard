@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2021_02_03_183350) do
 
   create_table "listings", force: :cascade do |t|
     t.string "title"
-    t.text "content"
+    t.text "description"
     t.string "skill_level"
     t.integer "price"
     t.integer "user_id"
