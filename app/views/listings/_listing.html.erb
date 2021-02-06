@@ -1,36 +1,40 @@
-<div class="show-head" style="inline">
-  <h3><%= show_listing(listing)%>
+
+<div class="col-lg-6">
+  <h3><%= show_listing(listing)%></h3>
   <% if params[:user_id] %>
-    <%= link_to "Edit", edit_user_listing_path(current_user, listing), type: "button", class: "btn y-bg" %>
-    <%= link_to "Delete", user_listing_path(current_user, listing), type:'button', class:"btn r-bg", method:'delete'%>
+    <div class = "tags">
+      <span class="no-link-style intermediate span-lg"><%= link_to "edit", edit_user_listing_path(current_user, listing)%></span>
+      <span class="no-link-style expert span-lg"><%= link_to "delete", user_listing_path(current_user, listing), method: :delete%></span>
+    </div>
   <% end %>
-  </h3>
-</div>
-<div class="tags">
-  <% listing.tag_names.each do |tag| %>
-    <%# tag: tag allows a param to be added%>
-    <span class="no-link-style <%= get_tag_class(tag) %>"><%= link_to tag, listings_path(tag: tag)%></span>
+
+  <div class="tags">
+    <% listing.tag_names.each do |tag| %>
+      <%# tag: tag allows a param to be added%>
+      <span class="no-link-style <%= get_tag_class(tag) %>"><%= link_to tag, listings_path(tag: tag)%></span>
+    <% end %>
+  </div>
+
+  <% if show_content %>
+    <%= listing.description %>
+    <br>
   <% end %>
+
+
+
+  <div class="tags">
+    <span class="pay"><%= listing.display_pay %></span>
+  </div>
+
+  <div class="tags">
+    <span class="no-link-style <%= listing.skill_level %>" ><%= link_to listing.skill_level, listings_path(skill_level: listing.skill_level) %></span>
+  </div>
+
+  <div class="tags">
+    <span class="creator"><%= listing.creator_email %></span>
+  </div>
 </div>
 
-<% if show_content %>
-  <%= listing.description %>
-  <br>
-<% end %>
-
-
-
-<div class="tags">
-  <span class="pay"><%= listing.display_pay %></span>
-</div>
-
-<div class="tags">
-  <span class="no-link-style <%= listing.skill_level %>" ><%= link_to listing.skill_level, listings_path(skill_level: listing.skill_level) %></span>
-</div>
-
-<div class="tags">
-  <span class="creator"><%= listing.creator_email %></span>
-</div>
 
 
 
