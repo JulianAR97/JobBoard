@@ -3,7 +3,10 @@
 <% params[:user_id] ? filter_url = user_listings_path(current_user) : filter_url  = listings_path%>
 <%= render 'filter', listings: @listings, url: filter_url%>
 
-
-<% @listings.each do |listing| %>
-  <%= render 'listing', listing: listing, show_content: false %>
-<% end %>
+<div class="container-fluid">
+  <div class="row">
+    <% @listings.each do |listing| %>
+      <%= render 'listing', listing: listing, show_content: false %>
+    <% end %>
+  </div>
+</div>
