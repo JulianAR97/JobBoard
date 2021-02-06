@@ -72,7 +72,9 @@ class ListingsController < ApplicationController
 
   def select_listings
     if params[:tag]
-      Listing.select {|l| l.tag_names.include? params[:tag]}
+      Listing.select { |l| l.tag_names.include? params[:tag] }
+    elsif params[:skill_level]
+      Listing.select { |l| l.skill_level == params[:skill_level] }
     elsif params[:user_id]
       Listing.where(user_id: params[:user_id])
     else
