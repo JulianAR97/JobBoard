@@ -2,7 +2,11 @@ class ListingsController < ApplicationController
   before_action :validate_ownership, only: %i[edit update destroy]
 
   def index
-    @listings = select_listings
+    if params[:listing]
+      @listings = helpers.filter_listings(select_listings, listing_params[:filter_data])
+    else 
+      @listings = select_listings
+    end
   end
 
   def show
@@ -63,7 +67,7 @@ class ListingsController < ApplicationController
   end
 
   def listing_params
-    params.require(:listing).permit(%i[title description skill_level price], tag_ids: [])
+    params.require(:listing).permit(%i[title description skill_level filter_data price], tag_ids: []) || nil
   end
 
   def select_listings
