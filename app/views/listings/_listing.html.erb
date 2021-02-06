@@ -18,12 +18,21 @@
   <br>
 <% end %>
 
-<div class="listing-info">
-  <h6>Compensation: $<%= listing.price %></h6>
-  <h6>Skill Level: <%= listing.skill_level %></h6>
-  <h6>Listed By: <%= listing.creator_name %></h6>
-  <br>
+
+
+<div class="tags">
+  <span class="pay"><%= listing.display_pay %></span>
 </div>
+
+<div class="tags">
+  <span class="no-link-style <%= listing.skill_level %>" ><%= link_to listing.skill_level, listings_path(skill_level: listing.skill_level) %></span>
+</div>
+
+<div class="tags">
+  <span class="creator"><%= listing.creator_email %></span>
+</div>
+
+
 
 
 
