@@ -14,12 +14,16 @@ class Listing < ApplicationRecord
   validates :description, length: { in: 100..5000 }
   validates :tags, length: { maximum: 5, message: "You can only select a maximum of 5 tags"}
 
-  def creator_name
+  def creator_email
     user.email
   end
 
   def tag_names
     tags.map(&:name)
+  end
+
+  def display_pay
+    '$' + price.to_s
   end
 
 
