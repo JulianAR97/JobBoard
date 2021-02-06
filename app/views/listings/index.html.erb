@@ -1,5 +1,7 @@
 <h1><%="My " if params[:user_id] %>Listings</h1>
 
+<%= render 'filter', listings: @listings, url: listings_path%>
+
 <% if params[:user_id] %>
   <%= link_to "New Listing", new_user_listing_path(current_user), type: "button", class: "btn y-bg"%>
 <% end %>
