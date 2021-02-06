@@ -3,9 +3,6 @@
 <% params[:user_id] ? filter_url = user_listings_path(current_user) : filter_url  = listings_path%>
 <%= render 'filter', listings: @listings, url: filter_url%>
 
-<% if params[:user_id] %>
-  <%= link_to "New Listing", new_user_listing_path(current_user), type: "button", class: "btn y-bg"%>
-<% end %>
 
 <% @listings.each do |listing| %>
   <%= render 'listing', listing: listing, show_content: false %>
