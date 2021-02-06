@@ -42,7 +42,9 @@ module ListingsHelper
       filter_by_newest(listings)
     when 'alphabetical'
       filter_alphabetical(listings)
-    when 'lowest pay' || 'highest pay'
+    when 'lowest pay'
+      filter_by_pay(listings, filter_params)
+    when 'highest pay'
       filter_by_pay(listings, filter_params)
     else
       listings
@@ -58,7 +60,7 @@ module ListingsHelper
   end
 
   def filter_by_pay(listings, filter_params)
-    order_dir = filter_params == 'lowest pay' ? :desc : :asc
+    filter_params == 'lowest pay' ? order_dir = :asc : order_dir = :desc
     listings.order(price: order_dir)
   end
 
