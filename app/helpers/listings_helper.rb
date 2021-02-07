@@ -14,7 +14,7 @@ module ListingsHelper
 
   # for use with _collection.html.erb
   def check_box_options
-    [:tag_ids, Tag.order(:name), :id, :name, limit: 5]
+    [:tag_ids, Tag.order(:name), :id, :name]
   end
 
   def radio_button_options
