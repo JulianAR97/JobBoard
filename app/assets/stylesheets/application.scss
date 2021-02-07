@@ -97,6 +97,18 @@ input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px inherit inset;
 }
 
+select.filter {
+  border-radius: 5px;
+  border-width: 0px;
+  background-color: #f8e9a1;
+}
+
+input.filter-submit {
+  border-radius: 5px;
+  border-width: 0px;
+  background-color: #c5ddbb;
+}
+
 
 .custom-checkbox span {
   display: inline-block;
