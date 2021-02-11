@@ -1,5 +1,6 @@
 <%= form_with(model: listings, url: url, method: 'get') do |f| %>
-  <span><%= f.collection_select(:filter_data, filter_options, :to_s, :to_s, {prompt: 'Filter'}, class: 'filter')%></span>
-  <br>
-  <span><%= f.submit 'Filter', class: 'filter-submit'%></span>
+  <span>
+    <%= f.collection_select(:filter_data, filter_options, :to_s, :to_s, { selected: filter_selected(params) }, 
+    { class: 'filter', onchange: 'this.form.submit();' })%>
+  </span>
 <% end %>

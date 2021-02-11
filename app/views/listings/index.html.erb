@@ -1,10 +1,11 @@
 <h1><%="My " if params[:user_id] %>Listings</h1>
 
+
 <% params[:user_id] ? filter_url = user_listings_path(current_user) : filter_url  = listings_path%>
 <%= render 'filter', listings: @listings, url: filter_url%>
 
 <div class="container-fluid">
-  <div class="row">
+  <div class="row"> 
     <% @listings.each do |listing| %>
       <%= render 'listing', listing: listing, show_content: false %>
     <% end %>
