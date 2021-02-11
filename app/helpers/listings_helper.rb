@@ -64,4 +64,11 @@ module ListingsHelper
     listings.order(price: order_dir)
   end
 
+  def filter_selected(params)
+    if params[:listing] && params[:listing][:filter_data]
+      params[:listing][:filter_data]
+    else
+      'newest'
+    end
+  end
 end
