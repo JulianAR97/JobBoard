@@ -3,9 +3,11 @@ class ListingsController < ApplicationController
 
   def index
     if params[:listing]
+      # filter by filter params, or...
       @listings = helpers.filter_listings(select_listings, listing_params[:filter_data])
-    else 
-      @listings = select_listings
+    else
+      # ...default to filtering by newest
+      @listings = helpers.filter_by_newest(select_listings)
     end
   end
 
