@@ -1,5 +1,5 @@
 <%= form_with(model: listings, url: url, method: 'get') do |f| %>
-  <span>
+  <span class="p-left">
     <%= f.collection_select(:filter_data, filter_options, :to_s, :to_s, { selected: filter_selected(params) }, 
     { class: 'filter', onchange: 'this.form.submit();' })%>
   </span>
