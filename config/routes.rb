@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   end
 
   # allow all users to look at the listings regardless of session status
-  resources :listings, only: %i[index show]
 
   resources :listings, only: %i[index show] do
     post '/apply', to: 'job_applications#apply'
