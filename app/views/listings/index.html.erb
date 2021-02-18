@@ -1,8 +1,17 @@
-<h1><%="My " if params[:user_id] %>Listings</h1>
+<h1 class="p-left"><%="My " if params[:user_id] %>Listings</h1>
 
 
 <% params[:user_id] ? filter_url = user_listings_path(current_user) : filter_url  = listings_path%>
-<%= render 'filter', listings: @listings, url: filter_url%>
+<% if @listings.any? %>
+  <%= render 'filter', listings: @listings, url: filter_url %>
+<% else %>
+  <h3 class="p-left r-text"> You have no listings</h3>
+  <div class="tags p-left">
+    <span class="no-link-style beginner span-lg"><%= link_to "create listing", new_user_listing_path(current_user)%></span>
+  </div>
+<% end %>
+
+<br>
 
 <div class="container-fluid">
   <div class="row"> 
