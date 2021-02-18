@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   # allow all users to look at the listings regardless of session status
   resources :listings, only: %i[index show]
 
+  resources :listings, only: %i[index show] do
+    post '/apply', to: 'job_applications#apply'
+  end
+
   root 'static#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
