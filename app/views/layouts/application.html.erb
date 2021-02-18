@@ -45,7 +45,7 @@
     </nav>
     <!-- Iterates through values of flash array and displays them -->
     <% flash.each do |_, value| %>
-      <%= value %><br>
+      <span class="p-left g-text"><strong><%= value %></strong></span><br>
     <% end %>
     <%= yield %>
   </body>
