@@ -1,56 +1,43 @@
 <!--form_for is deprecated-->
 
-<button type="button" class="btn y-bg" data-toggle="modal" data-target="#formModal"><%=modal_name%></button>
 
+<div class="col-md listing-form" style="max-width:700px; center;">
 
-<div class="modal lb-bg" id="formModal">
-  <div class="modal-dialog">
-    <div class="modal-content lb-bg">
-      <div class="modal-header text-center">
-        <h3 class="modal-title w-100 mb-text">New Listing</h3>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <div class="modal-body">
-      
-        <%= form_with(model: listing, url: url) do |f| %>
-          <% if listing.errors.any? %>
-            <div id="error_explanation">
-              <% listing.errors.each do |error| %>
-                
-                <%= error.full_message %><br>
-              <% end %>
-              <br>
-            </div>
-          <% end %>
-
+  <% if params[:id] %>
+    <h1 class="text-center">Edit Listing</h1>
+  <% else %>
+    <h1 class="text-center">New Listing</h1>
+  <% end %>
+  <%= form_with(model: listing, url: url) do |f| %>
+    <% if listing.errors.any? %>
+      <div id="error_explanation">
+        <% listing.errors.each do |error| %>
           
-          <%= render partial: partial_path("input_field"), locals: {f: f, label_text: 'Title', placeholder: 'Creative title goes here...', rows: nil, input_type: 'text_field'}%>
-          <%= render partial: partial_path("input_field"), locals: {f: f, label_text: 'Description', placeholder: lorem_ipsum(300), rows: 6, input_type: 'text_area'}%>
-          <%= render partial: partial_path("input_field"), locals: {f: f, label_text: 'Price', placeholder: 'Hard work is rewarded', rows: nil, input_type: 'number_field'}%>
-          
-          <%= render partial: partial_path('label'), locals: {label_text: 'Select a Skill Level'}%>
-  
-          <%= render partial: partial_path('collection'), locals: {f: f, cllt_type: 'radio_button', cllt_options: radio_button_options}%>
-          
-          <%= render partial: partial_path('label'), locals: {label_text: 'Select Up To 5 Tags'}%>
-          
-          <%= render partial: partial_path('collection'), locals: {f: f, cllt_type: 'check_box', cllt_options: check_box_options}%>
- 
-
-          <div class="form-group">
-            <%= f.submit class:'btn y-bg btn-block'%>
-          </div>
-
+          <span class="r-text"><strong><%= error.full_message %></strong></span><br>
         <% end %>
+        <br>
       </div>
-      
-      <div class="modal-footer">
-        <button type="button" class="btn r-bg btn-block" data-dismiss="modal">Close</button>
-      </div>
+    <% end %>
+
     
+    <%= render partial: partial_path("input_field"), locals: {f: f, label_text: 'Title', placeholder: 'Creative title goes here...', rows: nil, input_type: 'text_field'}%>
+    <%= render partial: partial_path("input_field"), locals: {f: f, label_text: 'Description', placeholder: lorem_ipsum(300), rows: 6, input_type: 'text_area'}%>
+    <%= render partial: partial_path("input_field"), locals: {f: f, label_text: 'Price', placeholder: 'Hard work is rewarded', rows: nil, input_type: 'number_field'}%>
+    
+    <%= render partial: partial_path('label'), locals: {label_text: 'Select a Skill Level'}%>
+
+    <%= render partial: partial_path('collection'), locals: {f: f, cllt_type: 'radio_button', cllt_options: radio_button_options}%>
+    
+    <%= render partial: partial_path('label'), locals: {label_text: 'Select Up To 5 Tags'}%>
+    
+    <%= render partial: partial_path('collection'), locals: {f: f, cllt_type: 'check_box', cllt_options: check_box_options}%>
+
+
+    <div class="form-group">
+      <%= f.submit class:'btn y-bg btn-block'%>
     </div>
-  </div>
+
+  <% end %>
 
 </div>
 
