@@ -4,6 +4,7 @@ class ListingsController < ApplicationController
   def index
     if params[:listing]
       # filter by filter params, or...
+
       @listings = helpers.filter_listings(select_listings, listing_params[:filter_data])
     else
       # ...default to filtering by newest
@@ -74,11 +75,12 @@ class ListingsController < ApplicationController
 
   def select_listings
     if params[:tag]
-      Listing.select { |l| l.tag_names.include? params[:tag] }
+      # fix this so that I can filter by tag
+      Listing.where(tag_names: params[:tag])
     elsif params[:skill_level]
-      Listing.select { |l| l.skill_level == params[:skill_level] }
+      Listing.filter_skill_level(params[:skill_level])
     elsif params[:user_id]
-      Listing.where(user_id: params[:user_id])
+      Listing.filter_user_id(params[:user_id])
     else
       Listing.all
     end

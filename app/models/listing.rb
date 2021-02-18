@@ -1,6 +1,9 @@
 class Listing < ApplicationRecord
   include ListingsHelper
 
+  scope :filter_skill_level, ->(skill_level) { where('skill_level = ?', skill_level) }
+  scope :filter_user_id, ->(user_id) { where('user_id = ?', user_id) }
+
   belongs_to :user
   has_many :listing_tags
   has_many :tags, through: :listing_tags
