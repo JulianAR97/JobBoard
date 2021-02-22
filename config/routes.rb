@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
-  
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  # match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   # scope in this instance is the same as saying resources :users except: *methods
   # listings need to be nested under a user to perform crud actions
   scope '/users/:user_id' do
@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   # allow all users to look at the listings regardless of session status
 
   resources :listings, only: %i[index show] do
-    post '/apply', to: 'job_applications#apply'
+    post '/apply', to: 'job_application#create'
   end
 
   root 'static#home'
