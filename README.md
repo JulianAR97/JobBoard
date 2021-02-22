@@ -1,24 +1,30 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a sample job posting app. Users can post jobs, and other users can apply to those jobs. 
 
-Things you may want to cover:
+To check it out, do the following: 
 
-* Ruby version
+1. Clone this repository
+2. Open project in code editor 
+3. Run 'bundle install'
+4. Run 'yarn install'
+5. Create a file 'credentials.yml' in '/config' folder
+6. In file, add the following
 
-* System dependencies
+github: 
+  app_id: <you will need to create an oauth app with github and replace this line with the id>
+  app_secret: <see above>
 
-* Configuration
+gmail: 
+  email: <any gmail address that you want to send all application outgoing emails from>
+  password: <gmail password>
 
-* Database creation
+secret_key_base: <your secret key base>
 
-* Database initialization
+7. Run 'rails db:reset' It might take a minute to seed. 
+8. Start a local server with 'rails s'
+9. Navigate to "http://localhost:3000"
+10. Test it out
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
