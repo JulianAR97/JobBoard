@@ -1,11 +1,26 @@
 
 <div class="col-lg-6 p-15">
   <h3><%= show_listing(listing)%></h3>
+
   <% if params[:user_id] %>
-    <div class = "tags">
+    <div class="tags">
       <span class="no-link-style intermediate span-lg"><%= link_to "edit", edit_user_listing_path(current_user, listing)%></span>
       <span class="no-link-style expert span-lg"><%= link_to "delete", user_listing_path(current_user, listing), method: :delete%></span>
     </div>
+  <% else %>
+    <% if params[:action] == 'show' && !!current_user %>
+      <% if already_applied? %>
+        <div class="tags">
+          <span class="beginner apply">already applied</span>
+        </div>
+      <% else %>
+        <%= form_with model: JobApplication.new, url: listing_apply_path(listing) do |f|%>
+          <div class="tags">
+            <%= f.submit "apply", class: "no-link-style beginner apply"%>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
   <% end %>
 
   <div class="tags">
