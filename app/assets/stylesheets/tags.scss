@@ -160,3 +160,14 @@
 .custom-checkbox input:checked ~ .checkmark {
   opacity: 100%;
 }
+
+.apply {
+  color: white;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-right: 5px;
+  border-radius: 5px;
+  border-width: 0px;
+}
