@@ -11,11 +11,12 @@
     <% if params[:action] == 'show' && !!current_user %>
       <% if already_applied? %>
         <div class="tags">
-          <span class="beginner apply">already applied</span>
+          <span class="no-link-style beginner">already applied</span>
         </div>
       <% else %>
         <%= form_with model: JobApplication.new, url: listing_apply_path(listing) do |f|%>
           <div class="tags">
+            Upload Resume: <%= f.file_field :resume %><br><br>
             <%= f.submit "apply", class: "no-link-style beginner apply"%>
           </div>
         <% end %>
