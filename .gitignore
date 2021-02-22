@@ -40,3 +40,5 @@ yarn-debug.log*
 .yarn-integrity
 
 notes.md
+/config/credentials.yml
+/config/credentials.yml.enc
