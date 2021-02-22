@@ -10,7 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_18_231749) do
+ActiveRecord::Schema.define(version: 2021_02_22_094008) do
+
+  create_table "attachment_binaries", force: :cascade do |t|
+    t.integer "attachment_id"
+    t.binary "data", limit: 10485760
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["attachment_id"], name: "index_attachment_binaries_on_attachment_id"
+  end
+
+  create_table "attachments", force: :cascade do |t|
+    t.integer "owner_id"
+    t.string "owner_type"
+    t.string "token"
+    t.string "digest"
+    t.string "role"
+    t.string "type"
+    t.string "file_name"
+    t.string "file_type"
+    t.string "cache_type"
+    t.string "cache_max_age"
+    t.string "disposition"
+    t.integer "file_size"
+    t.integer "parent_id"
+    t.boolean "processed", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.text "custom"
+    t.boolean "serve", default: true
+    t.index ["owner_id"], name: "index_attachments_on_owner_id"
+    t.index ["token"], name: "index_attachments_on_token"
+  end
 
   create_table "job_applications", force: :cascade do |t|
     t.integer "applicant_id"
