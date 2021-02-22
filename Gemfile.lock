@@ -84,6 +84,8 @@ GEM
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.2)
+    attach (1.1.2)
+      records_manipulator (>= 1.0, < 2.0)
     backport (1.1.2)
     bcrypt (3.1.16)
     benchmark (0.1.1)
@@ -214,6 +216,7 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    records_manipulator (1.0.1)
     regexp_parser (2.0.3)
     responders (3.0.1)
       actionpack (>= 5.0)
@@ -308,6 +311,7 @@ PLATFORMS
   x86_64-darwin-20
 
 DEPENDENCIES
+  attach
   bootsnap
   byebug
   capybara (>= 3.26)

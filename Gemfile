@@ -25,7 +25,7 @@ gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2'
 
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 gem 'omniauth-rails_csrf_protection'
-
+gem 'attach'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
