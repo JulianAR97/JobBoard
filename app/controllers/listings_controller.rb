@@ -62,7 +62,7 @@ class ListingsController < ApplicationController
       @listing = listing
     else
       if params[:user_id]
-        redirect_to user_listings_path(current_user), notice: "You do not have acess to that listing"
+        redirect_to user_listings_path(current_user), notice: "You do not have access to that listing"
       else
         redirect_to listings_path, notice: "You do not have access to that listing"
       end
