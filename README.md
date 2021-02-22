@@ -11,15 +11,15 @@ To check it out, do the following:
 5. Create a file 'credentials.yml' in '/config' folder
 6. In file, add the following
 
-github: 
-  app_id: you will need to create an oauth app with github and replace this line with the id
-  app_secret: see above
+## github: 
+  ## app_id: you will need to create an oauth app with github and replace this line with the id
+  ## app_secret: see above
 
-gmail: 
-  email: any gmail address that you want to send all application outgoing emails from
-  password: gmail password
+## gmail: 
+  ## email: any gmail address that you want to send all application outgoing emails from
+  ## password: gmail password
 
-secret_key_base: your secret key base
+## secret_key_base: your secret key base
 
 7. Run 'rails db:reset' It might take a minute to seed. 
 8. Start a local server with 'rails s'
