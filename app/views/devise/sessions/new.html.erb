@@ -29,6 +29,10 @@
     <div class="form-group">
       <%= f.submit "Log in", class: 'dg-bg btn btn-block' %>
     </div>
+
+    <div>
+      <%= link_to "Sign In With Github", '/users/auth/github', method: :post %>
+    </div>
   <% end %>
 
 </div>
