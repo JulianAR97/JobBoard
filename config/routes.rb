@@ -8,11 +8,12 @@ Rails.application.routes.draw do
   end
 
   # allow all users to look at the listings regardless of session status
-
+  
   resources :listings, only: %i[index show] do
     post '/apply', to: 'job_application#create'
   end
-
+  
   root 'static#home'
+  match '*path' => redirect('/'), via: :get
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
