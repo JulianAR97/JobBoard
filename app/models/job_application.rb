@@ -1,7 +1,6 @@
 class JobApplication < ApplicationRecord
   belongs_to :applicant, class_name: 'User'
   belongs_to :listing
-  attachment :resume
 
   validate :not_own_listing
   validate :omnidirectional_uniqueness
@@ -22,4 +21,5 @@ class JobApplication < ApplicationRecord
       errors.add(:applicant, 'cannot apply for same listing twice')
     end
   end
+
 end
